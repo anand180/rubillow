@@ -69,12 +69,26 @@ module Rubillow
         if @parser.xpath('//price').first
           @price = @parser.xpath('//price').first.text
         end
-        
-        @neighborhood = @parser.xpath('//neighborhood').first.text
-        @school_district = @parser.xpath('//schoolDistrict').first.text
-        @elementary_school = @parser.xpath('//elementarySchool').first.text
-        @middle_school = @parser.xpath('//middleSchool').first.text
-        @home_description = @parser.xpath('//homeDescription').first.text
+
+        if @parser.xpath('//neighborhood').first
+          @neighborhood = @parser.xpath('//neighborhood').first.text
+        end
+
+        if @parser.xpath('//schoolDistrict').first
+          @school_district = @parser.xpath('//schoolDistrict').first.text
+        end
+
+        if @parser.xpath('//elementarySchool').first
+          @elementary_school = @parser.xpath('//elementarySchool').first.text
+        end
+
+        if @parser.xpath('//middleSchool').first
+          @middle_school = @parser.xpath('//middleSchool').first.text
+        end
+
+        if @parser.xpath('//homeDescription').first
+          @home_description = @parser.xpath('//homeDescription').first.text
+        end
 
         @posting = {}
         @parser.xpath('//posting').children.each do |elm|
